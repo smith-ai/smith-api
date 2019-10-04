@@ -1,0 +1,29 @@
+{
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": true
+          }
+        }
+      ],
+      "@babel/typescript"
+    ],
+    "plugins": [
+      "inline-dotenv",
+      "@babel/plugin-syntax-dynamic-import",
+      "babel-plugin-transform-typescript-metadata",
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ],
+      ["@babel/plugin-proposal-class-properties", { "loose": true }]
+    ],
+    "ignore": [
+      "node_modules"
+    ]
+  }
+  
