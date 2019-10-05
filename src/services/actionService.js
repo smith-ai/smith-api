@@ -15,6 +15,8 @@ const execute = async (task) => {
     const taskLower = task.toLowerCase();
     const action = actions.filter((act) => taskLower.includes(act.task))[0];
 
+    if (action === undefined) throw new Error(`Unable to find action for task: ${task}`);
+
     let config = null;
 
     if (!('isDefault' in action && action.isDefault)) {

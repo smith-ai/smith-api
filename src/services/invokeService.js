@@ -2,7 +2,9 @@ import actionService from './actionService';
 
 const handle = async (command) => {
     try {
-        return actionService.execute(command);
+        const result = await actionService.execute(command);
+
+        return result;
     } catch (err) {
         console.error(err);
 
