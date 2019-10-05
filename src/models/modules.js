@@ -23,10 +23,17 @@ const get = async (name) => {
     const coll = await modules();
 
     return coll.findOne({ name });
-}
+};
+
+const remove = async (name) => {
+    const coll = await modules();
+
+    return coll.deleteOne({ name });
+};
 
 export default {
     add,
     all,
     get,
+    remove,
 };
