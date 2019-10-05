@@ -4,22 +4,12 @@ smith-api is the core Express API that powers the Mr Smith virtual assistant. Al
 
 ## Installation
 
-Use the package manager [yarn](https://yarnpkg.com/lang/en/) to install the NPM dependencies for smith-api:
+Mr Smith uses [GitHub Package Registry](https://github.com/features/package-registry) for hosting its custom modules, which are built as NPM packages.
+Currently, GitHub Package Registry requires all users to authenticate via a personal access token for installing packages.
+Therefore, you will first need to [generate a GitHub personal access token](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line), and add this to a `.env` file.
+
+Once added, you can then just build and run the necessary Docker containers via docker-compose:
 
 ```bash
-yarn
-```
-
-Start a development environment:
-
-```bash
-yarn debug
-```
-
-## Deployment
-
-To generate a production build of smith-api, run the following:
-
-```bash
-yarn build
+docker-compose up -d
 ```

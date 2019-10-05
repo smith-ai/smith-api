@@ -1,0 +1,25 @@
+version: '3'
+services:
+  smith-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NPM_TOKEN=${NPM_TOKEN}
+    links:
+      - mongo:mongo
+    volumes:
+      - "./src/:/home/node/app/src"
+      - "../smith-modules/:/home/node/smith-modules"
+    ports:
+      - 3500:3500
+  mongo:
+    image: mongo:latest
+    container_name: "mongo"
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./data/db:/data/db
+    ports:
+        - 27017:27017
