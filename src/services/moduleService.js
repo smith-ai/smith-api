@@ -2,6 +2,7 @@ import { readdirSync, statSync } from 'fs';
 import { join, resolve } from 'path';
 import actionService from './actionService';
 import modules from '../models/modules';
+import output from '../lib/output';
 
 /**
  * Get full filesystem path for default modules
@@ -65,7 +66,7 @@ const installModule = async (module) => {
         // Execute the module installer function, which should return
         // a new config object for the module. This config will then be
         // needed to execute any actions of the module.
-        const config = await install();
+        const config = await install(output);
 
         // Add the module and its config to MongoDB
         await modules.add(module, config);

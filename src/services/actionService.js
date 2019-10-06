@@ -1,4 +1,5 @@
 import modules from '../models/modules';
+import output from '../lib/output';
 
 /**
  * Persistent actions index which will contain a full list of
@@ -51,7 +52,7 @@ const execute = async (task) => {
     }
 
     // Execute the action handler function
-    return action.handler(params, config);
+    return action.handler(params, config, output);
 }
 
 export default {
