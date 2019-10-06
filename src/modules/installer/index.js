@@ -1,5 +1,5 @@
-const { action, actions } = require('@smith-ai/smith-actions');
-const { installModule, uninstallModule } = require('./installer');
+import { action, actions } from '@smith-ai/smith-actions';
+import { installModule, uninstallModule } from './installer';
 
 action('uninstall', async (module) => {
     const success = await uninstallModule(module);
@@ -17,6 +17,6 @@ action('install', async (module) => {
         : `Sorry, I could not install ${module}`;
 });
 
-module.exports = {
+export {
     actions,
 };

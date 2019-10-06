@@ -1,4 +1,4 @@
-const { execSync } = require('child_process');
+import { execSync } from 'child_process';
 import modules from '../../models/modules';
 import moduleService from '../../services/moduleService';
 
@@ -86,7 +86,7 @@ const uninstallModule = async (module) => {
     return success;
 }
 
-module.exports = {
+export {
     installModule,
     uninstallModule,
 };
