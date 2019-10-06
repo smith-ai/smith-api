@@ -1,8 +1,8 @@
 import { action, actions } from '@smith-ai/smith-actions';
-import { installModule, uninstallModule } from './installer';
+import moduleService from '../../services/moduleService';
 
 action('uninstall', async (module) => {
-    const success = await uninstallModule(module);
+    const success = await moduleService.uninstallModule(module);
 
     return success
         ? `Successfully uninstalled ${module}`
@@ -10,7 +10,7 @@ action('uninstall', async (module) => {
 });
 
 action('install', async (module) => {
-    const success = await installModule(module);
+    const success = await moduleService.installModule(module);
 
     return success
         ? `Successfully installed ${module}`
