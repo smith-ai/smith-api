@@ -13,6 +13,8 @@ services:
       - "../smith-modules/:/home/node/smith-modules"
     ports:
       - 3500:3500
+    environment:
+      - NODE_ENV=${NODE_ENV}
   mongo:
     image: mongo:latest
     container_name: "mongo"
