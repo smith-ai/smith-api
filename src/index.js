@@ -1,11 +1,13 @@
 import 'reflect-metadata';
 import express from 'express';
+import expressWs from 'express-ws';
 import bodyParser from 'body-parser';
 import { connect } from './lib/db';
 import apiRouter from './routes/api';
 import moduleService from './services/moduleService';
 
 const app = express();
+expressWs(app);
 const PORT = process.env.port || 3500;
 
 // Establish a connection to MongoDB before starting the API

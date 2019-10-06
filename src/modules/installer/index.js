@@ -1,7 +1,9 @@
 import { action, actions } from '@smith-ai/smith-actions';
 import moduleService from '../../services/moduleService';
 
-action('uninstall', async (module) => {
+action('uninstall', async (module, config, output) => {
+    output.write(`Uninstalling ${module}`);
+    
     const success = await moduleService.uninstallModule(module);
 
     return success
@@ -9,7 +11,9 @@ action('uninstall', async (module) => {
         : `Sorry, I could not uninstall ${module}`;
 });
 
-action('install', async (module) => {
+action('install', async (module, config, output) => {
+    output.write(`Installing ${module}`);
+
     const success = await moduleService.installModule(module);
 
     return success
