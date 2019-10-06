@@ -12,16 +12,4 @@ const handle = async (command) => {
     }
 };
 
-const parseCommand = (command) => {
-    const instructions = command.split(' to ');
-
-    const module = instructions[0].split(' ')[1];
-    const task = instructions[1];
-
-    return {
-        module,
-        task,
-    };
-};
-
 export { handle };
