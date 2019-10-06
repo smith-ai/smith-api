@@ -8,7 +8,9 @@ import moduleService from './services/moduleService';
 const app = express();
 const PORT = process.env.port || 3500;
 
+// Establish a connection to MongoDB before starting the API
 connect().then(async () => {
+    // Load any already installed modules
     await moduleService.load();
 
     // Use body parser to accept JSON input
