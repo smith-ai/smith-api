@@ -17,11 +17,11 @@ export default class OpenWeather {
      *
      * @param {object} params GET parameters to use in the request
      */
-    async doRequest(params) {
+    async doRequest(endpoint, params) {
         params.APPID = process.env.WEATHER_API_KEY;
 
         const result = await axios({
-            url: 'https://api.openweathermap.org/data/2.5/weather',
+            url: `https://api.openweathermap.org/data/2.5/${endpoint}`,
             method: 'get',
             params,
         });
@@ -36,7 +36,7 @@ export default class OpenWeather {
      * @param {string} city Name of city
      */
     async inCity(city) {
-        return this.doRequest({
+        return this.doRequest('weather', {
             q: city,
         });
     }
