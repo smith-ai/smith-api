@@ -40,4 +40,16 @@ export default class OpenWeather {
             q: city,
         });
     }
+
+    /**
+     * Retrieve a 5-day weather forecast for the given
+     * city by name.
+     *
+     * @param {string} city Name of city
+     */
+    async forCity(city) {
+        return this.doRequest('forecast', {
+            q: city,
+        });
+    }
 }
