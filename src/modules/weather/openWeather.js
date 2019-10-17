@@ -30,8 +30,8 @@ export default class OpenWeather {
     }
 
     /**
-     * Retrieve the current weather conditions for the
-     * given city name.
+     * Retrieve the current weather conditions in the
+     * given city by city name.
      *
      * @param {string} city Name of city
      */
