@@ -10,6 +10,14 @@ const getConditions = (result) => result.weather
 
 const getTemperature = (result) => `${result.main.temp.toFixed()}°C`;
 
+action('what is the temperature in', async (city) => {
+    const result = await weather.inCity(city);
+
+    const temperature = getTemperature(result);
+
+    return `Right now in ${city}, it is ${temperature}`;
+});
+
 action('what is the weather like in', async (city) => {
     const result = await weather.inCity(city);
 
