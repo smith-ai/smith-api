@@ -19,6 +19,7 @@ export default class OpenWeather {
      */
     async doRequest(endpoint, params) {
         params.APPID = process.env.WEATHER_API_KEY;
+        params.units = 'metric';
 
         const result = await axios({
             url: `https://api.openweathermap.org/data/2.5/${endpoint}`,

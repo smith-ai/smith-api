@@ -8,12 +8,15 @@ const getConditions = (result) => result.weather
     .join(' and ')
     .toLowerCase();
 
+const getTemperature = (result) => `${result.main.temp.toFixed()}°C`;
+
 action('what is the weather like in', async (city) => {
     const result = await weather.inCity(city);
 
-    const conditions = getConditions(result)
+    const conditions = getConditions(result);
+    const temperature = getTemperature(result);
 
-    return `Right now in ${city}, you can expect ${conditions}`;
+    return `Right now in ${city}, you can expect ${conditions}, with a temperature of ${temperature}`;
 });
 
 action('what is the forecast for', async (city) => {
