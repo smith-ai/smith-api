@@ -14,7 +14,7 @@ const handle = async (command) => {
     } catch (err) {
         console.error(err);
 
-        return `Sorry, I cannot ${command}`;
+        return `Sorry, I could not do that.`;
     }
 };
 
