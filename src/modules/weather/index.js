@@ -50,7 +50,7 @@ action('what is the forecast for', async (city) => {
 
             return `On ${day}, you can expect ${conditions}.`;
         })
-        .join(' ');
+        .join('\n');
 
     return forecasts;
 });
