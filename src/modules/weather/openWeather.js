@@ -18,7 +18,7 @@ export default class OpenWeather {
      * @param {object} params GET parameters to use in the request
      */
     async doRequest(endpoint, params) {
-        params.APPID = process.env.WEATHER_API_KEY;
+        params.APPID = this.apiKey;
         params.units = 'metric';
 
         const result = await axios({
