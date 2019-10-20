@@ -1,7 +1,7 @@
 import { action, actions } from '@smith-ai/smith-actions';
 import OpenWeather from './openWeather';
 
-const weather = new OpenWeather();
+const weather = new OpenWeather(process.env.WEATHER_API_KEY);
 
 const getConditions = (result) => result.weather
     .map((weatherCond) => weatherCond.main)
