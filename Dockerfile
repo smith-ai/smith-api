@@ -15,11 +15,13 @@ USER node
 COPY --chown=node:node .npmrc ./
 COPY --chown=node:node package*.json ./
 
+RUN envsubst < .npmrc > ~/.npmrc
+RUN envsubst < .npmrc > .npmrc
+
+RUN npm cache clean --force
 RUN npm install
 
 COPY --chown=node:node . .
-
-RUN envsubst < .npmrc > ~/.npmrc
 
 EXPOSE 3500
 
