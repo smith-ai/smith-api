@@ -17,6 +17,24 @@ const getDefaultModulePath = () => resolve('dist/modules')
 const getModuleInstallName = (module) => `@smith-ai/smith-${module}`;
 
 /**
+ * Complete authentication with the given module.
+ * Expects a request object containing auth details
+ * relevant to the module.
+ *
+ * @param {string} module Name of module to auth with
+ * @param {Request} req Express request object
+ */
+const authModule = async (module, req) => {
+    const { auth } = requireModule(module);
+
+    const config = await auth(req);
+
+    await modules.update(module, config);
+
+    return true;
+};
+
+/**
  * Require the given module
  * 
  * @param {string} module Name of module to require
@@ -159,6 +177,7 @@ const loadModules = (modules, isDefault = false) => {
 }
 
 export default {
+    authModule,
     installModule,
     uninstallModule,
     load,
