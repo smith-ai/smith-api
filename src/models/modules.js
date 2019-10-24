@@ -43,6 +43,19 @@ const get = async (name) => {
 };
 
 /**
+ * Update an existing module in the MongoDB collection
+ * by name.
+ *
+ * @param {string} name Name of module to update
+ * @param {object} config Config data to update
+ */
+const update = async (name, config = {}) => {
+    const coll = await modules();
+
+    return coll.updateOne({ name }, { $set: { config } });
+};
+
+/**
  * Remove a module from the MongoDB collection by name.
  * 
  * @param {string} name Name of module to remove
@@ -57,5 +70,6 @@ export default {
     add,
     all,
     get,
+    update,
     remove,
 };
