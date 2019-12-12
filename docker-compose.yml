@@ -6,7 +6,6 @@ services:
       dockerfile: Dockerfile
       args:
         - NPM_TOKEN=${NPM_TOKEN}
-        - WEATHER_API_KEY=${WEATHER_API_KEY}
     links:
       - mongo:mongo
     volumes:
