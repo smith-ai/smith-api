@@ -1,4 +1,12 @@
 {
   "extends": "airbnb",
-  "parser": "babel-eslint"
+  "parser": "babel-eslint",
+  "rules": {
+    "import/prefer-default-export": [0, { "extensions": [".js"] }],
+    "import/no-mutable-exports": [0, { "extensions": [".js"] }],
+    "import/no-dynamic-require": [0, { "extensions": [".js"] }],
+    "no-return-assign": [0, { "extensions": [".js"] }],
+    "global-require": [0, { "extensions": [".js"] }],
+    "no-unused-vars": ["error", { "argsIgnorePattern": "next" }]
+  }
 }

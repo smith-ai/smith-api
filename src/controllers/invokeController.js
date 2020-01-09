@@ -1,20 +1,19 @@
-import { Request, Response } from 'express';
 import { handle } from '../services/invokeService';
 import output from '../lib/output';
 
 /**
  * Entrypoint for invoking a command. This will pass
  * the given command to the invoke service to be handled.
- * 
+ *
  * @param {Request} req Express request object
  * @param {Response} res Express response object
  */
 const invoke = async (req, res) => {
-    const command = req.body.command.toLowerCase();
-    
-    const result = await handle(command);
+  const command = req.body.command.toLowerCase();
 
-    res.json(result);
+  const result = await handle(command);
+
+  res.json(result);
 };
 
 /**
@@ -23,16 +22,16 @@ const invoke = async (req, res) => {
  * @param {mixed} ws WebSocket instance
  */
 const invokeSocket = async (ws) => {
-    output.set(ws);
+  output.set(ws);
 
-    ws.on('message', async (msg) => {
-        const result = await handle(msg);
+  ws.on('message', async (msg) => {
+    const result = await handle(msg);
 
-        output.write(result, true);
-    });
-}
+    output.write(result, true);
+  });
+};
 
 export {
-    invoke,
-    invokeSocket,
+  invoke,
+  invokeSocket,
 };

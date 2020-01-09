@@ -1,4 +1,3 @@
-import { Request, Response } from 'express';
 import moduleService from '../services/moduleService';
 
 /**
@@ -9,13 +8,13 @@ import moduleService from '../services/moduleService';
  * @param {Response} res Express response object
  */
 const auth = async (req, res) => {
-    const { module } = req.params;
-    
-    await moduleService.authModule(module, req);
+  const { module } = req.params;
 
-    return res.json(`Successfully authenticated module: ${module}`);
+  await moduleService.authModule(module, req);
+
+  return res.json(`Successfully authenticated module: ${module}`);
 };
 
 export {
-    auth,
+  auth,
 };
