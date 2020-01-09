@@ -13,7 +13,7 @@ action('run diagnostics', () => {
   const totalmem = os.totalmem();
   const freemem = os.freemem();
   const usedmem = totalmem - freemem;
-  const mempercent = (usedmem / totalmem * 100).toPrecision(2);
+  const mempercent = ((usedmem / totalmem) * 100).toPrecision(2);
 
   return [
     `Hostname: ${hostname}`,
