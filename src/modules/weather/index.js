@@ -28,31 +28,31 @@ action('what is the weather like in', async (city) => {
 });
 
 action('what is the forecast for', async (city) => {
-    const days = [
-        'Sunday',
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday',
-    ];
+  const days = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
 
-    const result = await weather.forCity(city);
+  const result = await weather.forCity(city);
 
-    const forecasts = result.list
-        .filter((forecast) => forecast.dt_txt.includes('12:00:00'))
-        .map((forecast) => {
-            const date = new Date(forecast.dt_txt);
-            const day = days[date.getDay()];
+  const forecasts = result.list
+    .filter((forecast) => forecast.dt_txt.includes('12:00:00'))
+    .map((forecast) => {
+      const date = new Date(forecast.dt_txt);
+      const day = days[date.getDay()];
 
-            const conditions = getConditions(forecast);
+      const conditions = getConditions(forecast);
 
-            return `On ${day}, you can expect ${conditions}.`;
-        })
-        .join('\n');
+      return `On ${day}, you can expect ${conditions}.`;
+    })
+    .join('\n');
 
-    return forecasts;
+  return forecasts;
 });
 
 export { actions };

@@ -14,7 +14,7 @@ const handle = async (command) => {
     return result;
   } catch (err) {
     logger.error(err);
-    return `Sorry, I could not do that.`;
+    return 'Sorry, I could not do that.';
   }
 };
 
