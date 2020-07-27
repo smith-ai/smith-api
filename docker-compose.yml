@@ -6,7 +6,6 @@ services:
       dockerfile: Dockerfile
       args:
         - NPM_TOKEN=${NPM_TOKEN}
-        - WEATHER_API_KEY=${WEATHER_API_KEY}
     links:
       - mongo:mongo
     volumes:
@@ -14,8 +13,8 @@ services:
       - "../smith-modules/:/home/node/smith-modules"
     ports:
       - 3500:3500
-    environment:
-      - NODE_ENV=${NODE_ENV}
+    env_file:
+      - .env
   mongo:
     image: andresvidal/rpi3-mongodb3:latest
     container_name: "mongo"

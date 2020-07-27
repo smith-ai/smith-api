@@ -4,27 +4,27 @@ import OpenWeather from './openWeather';
 const weather = new OpenWeather(process.env.WEATHER_API_KEY);
 
 const getConditions = (result) => result.weather
-    .map((weatherCond) => weatherCond.main)
-    .join(' and ')
-    .toLowerCase();
+  .map((weatherCond) => weatherCond.main)
+  .join(' and ')
+  .toLowerCase();
 
 const getTemperature = (result) => `${result.main.temp.toFixed()}°C`;
 
 action('what is the temperature in', async (city) => {
-    const result = await weather.inCity(city);
+  const result = await weather.inCity(city);
 
-    const temperature = getTemperature(result);
+  const temperature = getTemperature(result);
 
-    return `Right now in ${city}, it is ${temperature}`;
+  return `Right now in ${city}, it is ${temperature}`;
 });
 
 action('what is the weather like in', async (city) => {
-    const result = await weather.inCity(city);
+  const result = await weather.inCity(city);
 
-    const conditions = getConditions(result);
-    const temperature = getTemperature(result);
+  const conditions = getConditions(result);
+  const temperature = getTemperature(result);
 
-    return `Right now in ${city}, you can expect ${conditions}, with a temperature of ${temperature}`;
+  return `Right now in ${city}, you can expect ${conditions}, with a temperature of ${temperature}`;
 });
 
 action('what is the forecast for', async (city) => {

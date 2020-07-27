@@ -7,14 +7,14 @@ let db;
  * Connect to MongoDB, creating a peristent connection
  */
 const connect = async () => {
-    let client = new MongoClient('mongodb://mongo');
+  let client = new MongoClient('mongodb://mongo');
 
-    client = await client.connect();
+  client = await client.connect();
 
-    db = client.db('smith');
+  db = client.db('smith');
 };
 
 export {
-    db,
-    connect,
+  db,
+  connect,
 };
